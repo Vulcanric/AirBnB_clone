@@ -57,7 +57,7 @@ Type `help <command>` to know more about a command.
 
 #### Examples
 ```bash
-$ ./connsole.py
+$ ./console.py
 (hbnb) help
 
 Documented commands (type help <topic>):
