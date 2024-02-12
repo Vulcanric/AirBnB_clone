@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This file contains definition of the BaseModel class and all its methods"""
 import uuid
+import models  # Its __init__.py file contains the 'storage' instance
 from datetime import datetime
 
 
@@ -38,6 +39,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            models.storage.new(self)  # Store the new object created, in __objects
 
     def __str__(self):
         """Return an informal representation of a model/object"""
@@ -46,6 +48,7 @@ class BaseModel:
     def save(self):
         """Save the object and update its time to the current time"""
         self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
         """
